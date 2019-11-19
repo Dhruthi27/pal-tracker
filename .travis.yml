@@ -27,7 +27,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading release-$TRAVIS_BUILD_NUMBER"
-        - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
+        - wget -P build/libs https://github.com/Dhruthi27/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
       before_deploy:
         - echo "Deploying release-$TRAVIS_BUILD_NUMBER to Cloud Foundry"
       deploy:
