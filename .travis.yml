@@ -17,7 +17,7 @@ jobs:
       before_deploy:
         - git config --local user.name "Travis CI"
         - git config --local user.email "travis@example.com"
-        - git tag -f $RELEASE_TAG
+        - git tag -f release-$TRAVIS_BUILD_NUMBER
       deploy:
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
@@ -26,8 +26,8 @@ jobs:
     - stage: deploy to cf
       language: bash
       script:
-        - echo "Downloading $RELEASE_TAG"
-        - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/$RELEASE_TAG/pal-tracker.jar
+        - echo "Downloading release-$TRAVIS_BUILD_NUMBER"
+        - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
       before_deploy:
         - echo "Deploying $RELEASE_TAG to Cloud Foundry"
       deploy:
@@ -35,5 +35,5 @@ jobs:
         api: $CF_API_URL
         username: $CF_USERNAME
         password: $CF_PASSWORD
-        organization: $CF_ORG
+        organization: $CF_ORGgit
         space: $CF_SPACE
