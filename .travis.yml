@@ -19,6 +19,7 @@ jobs:
         - git config --local user.email "travis@example.com"
         - git tag -f release-$TRAVIS_BUILD_NUMBER
       deploy:
+        edge: true
         provider: releases
         api_key: $GITHUB_OAUTH_TOKEN
         file: "build/libs/pal-tracker.jar"
