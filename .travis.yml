@@ -15,8 +15,8 @@ jobs:
       install: skip
       script: ./gradlew clean build
       before_deploy:
-        - git config --local user.name "Dhruthi27"
-        - git config --local user.email "varupula.dhruthi@wipro.com"
+        - git config --local user.name "Travis CI"
+        - git config --local user.email "travis@example.com"
         - git tag -f release-$TRAVIS_BUILD_NUMBER
       deploy:
         provider: releases
@@ -27,7 +27,7 @@ jobs:
       language: bash
       script:
         - echo "Downloading release-$TRAVIS_BUILD_NUMBER"
-        - wget -P build/libs https://github.com/Dhruthi27/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
+        - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
       before_deploy:
         - echo "Deploying release-$TRAVIS_BUILD_NUMBER to Cloud Foundry"
       deploy:
