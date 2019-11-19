@@ -29,7 +29,7 @@ jobs:
         - echo "Downloading release-$TRAVIS_BUILD_NUMBER"
         - wget -P build/libs https://github.com/$GITHUB_USERNAME/pal-tracker/releases/download/release-$TRAVIS_BUILD_NUMBER/pal-tracker.jar
       before_deploy:
-        - echo "Deploying $RELEASE_TAG to Cloud Foundry"
+        - echo "Deploying release-$TRAVIS_BUILD_NUMBER to Cloud Foundry"
       deploy:
         provider: cloudfoundry
         api: $CF_API_URL
