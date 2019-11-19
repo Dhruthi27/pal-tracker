@@ -5,4 +5,4 @@ applications:
   routes:
   - route: pcftraining.apps.evans.pal.pivotal.io
   env:
-    WELCOME_MESSAGE: Hello from Review Environment
+    WELCOME_MESSAGE: Hello from the review environment
