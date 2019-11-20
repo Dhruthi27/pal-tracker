@@ -1,5 +1,7 @@
 package io.pivotal.pal.tracker;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -9,6 +11,9 @@ public class TimeEntry {
     private long userId;
     private LocalDate date;
     private int hours;
+
+    public TimeEntry() {
+    }
 
     public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
         this.id = id;
@@ -23,9 +28,6 @@ public class TimeEntry {
         this.userId = userId;
         this.date = date;
         this.hours = hours;
-    }
-
-    public TimeEntry() {
     }
 
     public long getId() {
